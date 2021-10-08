@@ -1,0 +1,43 @@
+.converter {
+	font-size: calc(25px + 2vmin);
+}
+
+.converter .form-container {
+  max-width: 75%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #f06449;
+}
+
+.converter .form-container form {
+  padding: 10px;
+}
+
+.converter .form-container input {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.converter input:focus {
+  outline: none !important;
+  border: 2px solid #5bc3eb;
+  box-shadow: none;
+}
+
+.converter button {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 5px;
+  background-color: #5bc3eb;
+  color: #36382e;
+}
+
+.converter button:active {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 5px;
+  background-color: #3bb5e6;
+  color: #dadad9;
+}

@@ -1,0 +1,44 @@
+nav {
+  width: 100%;
+  height: 100%;
+}
+
+nav div {
+  margin-right: 10px;
+}
+
+.main-links {
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.nav-brand {
+  height: 100%;
+  font-size: calc(8px + 2vmin);
+}
+
+.nav-brand a {
+  margin: 0;
+  top: 0;
+  color: inherit;
+}
+
+.nav-links {
+  font-size: 1em;
+}
+
+.projects, .home {
+	font-size: calc(25px + 2vmin);
+}
+
+.project-list-item {
+	display: inline-block;
+	width: 90%;
+  margin: 5px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+	text-align: center;
+	background-color: #5BC3EB;
+}
