@@ -1,0 +1,5 @@
+{
+  "name": "mathew-gries-dotcom",
+  "region": "us-east-1",
+  "main": "stacks/index.js"
+}
