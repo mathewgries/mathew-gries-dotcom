@@ -22,7 +22,7 @@ export default class ApiStack extends sst.Stack {
           : {
               domainName: "mathewgries.com",
               hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
-                hostedZoneId: "ZL9TX5SVZ0693",
+                hostedZoneId: "Z06088022M0F3LB0V7ZN",
                 zoneName: "dev.api.mathewgries.com",
               }),
             },
