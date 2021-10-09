@@ -1,4 +1,5 @@
 import * as sst from "@serverless-stack/resources";
+import { HostedZone } from "@aws-cdk/aws-route53";
 
 export default class ApiStack extends sst.Stack {
   api;
