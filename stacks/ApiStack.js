@@ -9,6 +9,22 @@ export default class ApiStack extends sst.Stack {
     const { table } = props;
 
     this.api = new sst.Api(this, "Api", {
+      customDomain:
+        scope.state === "prod"
+          ? {
+              domainName: "mathewgries.com",
+              hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+                hostedZoneId: "ZL9TX5SVZ0693",
+                zoneName: "prod.api.mathewgries.com",
+              }),
+            }
+          : {
+              domainName: "mathewgries.com",
+              hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+                hostedZoneId: "ZL9TX5SVZ0693",
+                zoneName: "dev.api.mathewgries.com",
+              }),
+            },
       defaultAuthorizationType: "AWS_IAM",
       defaultFunctionProps: {
         environment: {
@@ -22,7 +38,7 @@ export default class ApiStack extends sst.Stack {
     this.api.attachPermissions([table]);
 
     this.addOutputs({
-      ApiEndpoint: this.api.url,
+      ApiEndpoint: this.api.customDomainUrl || this.api.url,
     });
   }
 }
