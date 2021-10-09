@@ -7,7 +7,8 @@ export default class FrontendStack extends sst.Stack {
     const { api, auth, bucket } = props;
 
     // Define our React app
-    const site = new sst.ReactStaticSite(this, "ReactSite", {
+    const site = new sst.ReactStaticSite(
+			this, "ReactSite", {
       path: "frontend",
       // Pass in our environment variables
       environment: {
