@@ -1,5 +1,6 @@
 import * as sst from "@serverless-stack/resources";
 import { HostedZone } from "@aws-cdk/aws-route53";
+import { Certificate } from "@aws-cdk/aws-certificatemanager";
 
 export default class FrontendStack extends sst.Stack {
   constructor(scope, id, props) {

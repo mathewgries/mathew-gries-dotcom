@@ -1,5 +1,6 @@
 import * as sst from "@serverless-stack/resources";
 import { HostedZone } from "@aws-cdk/aws-route53";
+import { Certificate } from "@aws-cdk/aws-certificatemanager";
 
 export default class ApiStack extends sst.Stack {
   api;
@@ -26,6 +27,8 @@ export default class ApiStack extends sst.Stack {
                 ),
               }),
             }
+
+						
           : {
               domainName: "mathewgries.com",
               hostedZone: HostedZone.fromHostedZoneAttributes(this, "MyZone", {
