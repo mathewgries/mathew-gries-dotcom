@@ -13,13 +13,19 @@ export default class FrontendStack extends sst.Stack {
       customDomain:
         scope.state === "prod"
           ? {
-              domainName: "mathewgries.com",
-              hostedZone: HostedZone.fromHostedZoneAttributes(this, "MyZone", {
-                hostedZoneId: "ZL9TX5SVZ0693",
-                zoneName: "www.mathewgries.com",
-              }),
-            }
-          : undefined,
+						domainName: "mathewgries.com",
+						hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+							hostedZoneId: "ZL9TX5SVZ0693",
+							zoneName: "www.mathewgries.com",
+						}),
+					}
+				: {
+						domainName: "mathewgries.com",
+						hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+							hostedZoneId: "Z06088022M0F3LB0V7ZN",
+							zoneName: "www.dev.mathewgries.com",
+						}),
+					},
       // Pass in our environment variables
       environment: {
         REACT_APP_API_URL: api.customDomainUrl || api.url,

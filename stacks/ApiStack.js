@@ -14,16 +14,16 @@ export default class ApiStack extends sst.Stack {
         scope.state === "prod"
           ? {
               domainName: "mathewgries.com",
-              hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+              hostedZone: HostedZone.fromHostedZoneAttributes(this, "mathewgries.com", {
                 hostedZoneId: "ZL9TX5SVZ0693",
                 zoneName: "prod.api.mathewgries.com",
               }),
             }
           : {
               domainName: "mathewgries.com",
-              hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
+              hostedZone: HostedZone.fromHostedZoneAttributes(this, "mathewgries.com", {
                 hostedZoneId: "Z06088022M0F3LB0V7ZN",
-                zoneName: "dev.api.mathewgries.com",
+                zoneName: "www.dev.api.mathewgries.com",
               }),
             },
       defaultAuthorizationType: "AWS_IAM",
