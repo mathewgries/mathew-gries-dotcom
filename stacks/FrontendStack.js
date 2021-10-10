@@ -7,25 +7,46 @@ export default class FrontendStack extends sst.Stack {
 
     const { api, auth, bucket } = props;
 
+    const certArn =
+      "	arn:aws:acm:us-east-1:025747659854:certificate/b54adf90-1c69-4fb5-bf07-79af60466757";
+
     // Define our React app
     const site = new sst.ReactStaticSite(this, "ReactSite", {
       path: "frontend",
       customDomain:
         scope.state === "prod"
           ? {
-						domainName: "mathewgries.com",
-						hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
-							hostedZoneId: "ZL9TX5SVZ0693",
-							zoneName: "www.mathewgries.com",
-						}),
-					}
-				: {
-						domainName: "mathewgries.com",
-						hostedZone: HostedZone.fromHostedZoneAttributes(this, "MathewGriesDotComZone", {
-							hostedZoneId: "Z06088022M0F3LB0V7ZN",
-							zoneName: "www.dev.mathewgries.com",
-						}),
-					},
+              domainName: "mathewgries.com",
+              hostedZone: HostedZone.fromHostedZoneAttributes(
+                this,
+                "MathewGriesDotComZone",
+                {
+                  hostedZoneId: "ZL9TX5SVZ0693",
+                  zoneName: "www.mathewgries.com",
+                  certificate: Certificate.fromCertificateArn(
+                    this,
+                    "MyCert",
+                    certArn
+                  ),
+                }
+              ),
+            }
+          : {
+              domainName: "mathewgries.com",
+              hostedZone: HostedZone.fromHostedZoneAttributes(
+                this,
+                "MathewGriesDotComZone",
+                {
+                  hostedZoneId: "Z06088022M0F3LB0V7ZN",
+                  zoneName: "www.dev.mathewgries.com",
+                  certificate: Certificate.fromCertificateArn(
+                    this,
+                    "MyCert",
+                    certArn
+                  ),
+                }
+              ),
+            },
       // Pass in our environment variables
       environment: {
         REACT_APP_API_URL: api.customDomainUrl || api.url,
