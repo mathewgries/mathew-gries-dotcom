@@ -10,6 +10,10 @@ export default function main(app) {
   const fileUploadStack = new FileUploadStack(app, "bucket");
 
   const apiStack = new ApiStack(app, "api", {
+    env: {
+      account: process.env.CDK_DEFAULT_ACCOUNT,
+      region: process.env.CDK_DEFAULT_REGION,
+    },
     table: dbStack.table,
   });
 
