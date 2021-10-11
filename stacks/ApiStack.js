@@ -9,14 +9,19 @@ export default class ApiStack extends sst.Stack {
 
     const { table } = props;
     const { stage } = this.node.root;
-    const zone = route53.HostedZone.fromLookup(this, "Zone", {
-      domainName: props.domainName,
-    });
 
     this.api = new sst.Api(this, "Api", {
-      customDomain: HostedZone.fromLookup(this, "MyHostedZone", {
-        domain: `${stage}.api.mathewgries.com`,
-      }),
+      customDomain: {
+        domainName: "mathewgries.com",
+        hostedZone: HostedZone.fromHostedZoneAttributes(this, "MyZone", {
+          hostedZoneId:
+            stage === "prod" ? "Z0446746E7NKHGM6KRL7" : "Z075300910GQYU7TM9XRM",
+          zoneName:
+            stage === "prod"
+              ? "prod.api.mathewgries.com"
+              : "dev.api.mathewgries.com",
+        }),
+      },
       defaultAuthorizationType: "AWS_IAM",
       defaultFunctionProps: {
         environment: {
