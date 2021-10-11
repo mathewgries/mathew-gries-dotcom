@@ -1,5 +1,4 @@
 import * as sst from "@serverless-stack/resources";
-import { HostedZone } from "@aws-cdk/aws-route53";
 
 export default class ApiStack extends sst.Stack {
   api;
@@ -11,9 +10,7 @@ export default class ApiStack extends sst.Stack {
     const { stage } = this.node.root;
 
     this.api = new sst.Api(this, "Api", {
-      customDomain: HostedZone.fromLookUp(this, "mathewGriesDOTCOMZone", {
-        domain: `www.${stage}.api.mathewgries.com`,
-      }),
+      customDomain: `${stage}.api.mathewgries.com`,
       defaultAuthorizationType: "AWS_IAM",
       defaultFunctionProps: {
         environment: {
