@@ -15,7 +15,7 @@ export function numberFromId(text) {
       return '5'
     case 'six':
       return '6'
-    case 'sevent':
+    case 'seven':
       return '7'
     case 'eight':
       return '8'
