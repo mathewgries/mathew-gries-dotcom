@@ -3,9 +3,38 @@
   padding: 0;
   border: 0;
   outline: 0;
-  font-size: 100%;
   vertical-align: baseline;
   background: transparent;
+}
+
+body {
+  min-height: 100vh;
+  color: #33475b;
+  margin: 0;
+  padding: 0;
+	font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+p {
+	font-size: 1.4em;
 }
 
 a,
@@ -16,59 +45,62 @@ a:active {
   color: inherit;
 }
 
-body {
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #ede6e3;
-  color: #36382e;
-  font-family: 'Spectral', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav {
+  min-height: 50px;
+}
+
+footer {
+  min-height: 50px;
+  background: PapayaWhip;
+  margin-top: auto;
 }
 
 .nav-container {
-  width: 100%;
-  height: 3em;
-  background-color: #36382e;
-  color: #ede6e3;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 90;
+  width: 100vw;
+  color: black;
 }
 
-.app-container {
-  width: 90%;
-  margin: 0 auto;
-  min-height: 100vh;
+.content-wrap {
+  width: 100%;
+  margin-top: 50px;
 }
 
 .page-container {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  width: 90%;
+	/* display: flex;
+	flex-flow: column;
+	margin: 40px auto 0 auto;
+  width: 80vw; */
 }
 
-.page-container h1 {
-  margin: 0;
-  padding: 5px;
-  font-family: 'Abril Fatface', cursive;
+.page-header {
+	padding: 10px;
+	margin-bottom: 20px;
+  text-align: center;
 }
 
-.page-container p {
-  margin: 0;
-  padding: 0;
-  line-height: 100%;
-  font-weight: bold;
+.page-section {
+	margin-bottom: 80px;
+	width: 100%;
 }
 
-.page-container header {
-  margin-bottom: 20px;
-}
+/* @media screen and (min-width: 420px) {
+  .app-container {
+    width: 80%;
+  }
+} */
 
 /*
 .spinner {

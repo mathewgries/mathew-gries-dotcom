@@ -57,29 +57,63 @@ export const ConverterPage = () => {
   }
 
   return (
-    <section className="page-container converter">
-      <header>
-        <h1>Convert Binary To Decimal</h1>
-      </header>
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              autoFocus={true}
-              type="text"
-              value={binValue}
-              onChange={handleInputUpdate}
-            />
-          </div>
-          <div>
-            <input type="text" value={decValue} readOnly />
-          </div>
-          <button type="submit">Convert</button>
-          <button type="input" onClick={clearFields}>
-            Clear
-          </button>
-        </form>
-      </div>
-    </section>
+    <div className="page-container converter">
+      <section className="page-section">
+        <header className="page-header">
+          <h1>Convert Binary To Decimal</h1>
+        </header>
+
+        <div>
+          <p>
+            Enter any series of 1s and 0s, up to 8 digits, and click the Convert
+            button to display the decimal value.
+          </p>
+        </div>
+        <div>
+          <p className="binary-link">
+            <a href="https://en.wikipedia.org/wiki/Binary_number">
+              Click here to learn more about binary
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="converter-form-container">
+          <form onSubmit={handleSubmit}>
+            <div className="converter-form-group">
+              <input
+                className="binary-input converter-input"
+                autoFocus={true}
+                type="text"
+                value={binValue}
+                onChange={handleInputUpdate}
+              />
+            </div>
+            <div className="converter-form-group">
+              Results:{' '}
+              <input
+                className="converter-input"
+                type="text"
+                value={decValue}
+                readOnly
+              />
+            </div>
+            <div className="converter-button-container">
+              <button className="converter-button" type="submit">
+                Convert
+              </button>
+              <button
+                className="converter-button"
+                type="input"
+                onClick={clearFields}
+              >
+                Clear
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
   )
 }

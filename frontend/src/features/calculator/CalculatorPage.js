@@ -1,4 +1,5 @@
 import React from 'react'
+import { numberFromId } from './helper'
 import runOperations from '../../helpers/runOperations'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -10,7 +11,6 @@ import {
   updateDisplayValue,
   resetAll,
 } from './calculatorSlice'
-import { DisplayField } from './DisplayField'
 import { CalculatorButton } from './CalculatorButton'
 import './style.css'
 
@@ -36,9 +36,9 @@ export const CalculatorPage = () => {
 
   const onClickHandler = ({ target }) => {
     const { id, classList } = target
-    const btn = classList.value.substring('button'.length + 1)
+    const btn = classList.value.substring('calc-button'.length + 1)
 
-    if (btn === 'number') handleNumberClick(id)
+    if (btn === 'number') handleNumberClick(numberFromId(id))
     if (btn === 'sign') handleSignClick(id)
     if (btn === 'all-clear') handleAllClearClick()
     if (btn === 'clear') handleClearClick()
@@ -222,198 +222,197 @@ export const CalculatorPage = () => {
   //==========================================================================//
 
   return (
-    <section className="page-container calculator">
-      <div>
+    <div className="page-container calculator">
+      <section className="page-header">
         <header>
           <h1>Calculator</h1>
         </header>
-      </div>
-      <div className="calculator-table-container">
-        <table>
-          <tbody>
-            <tr>
-              <td colSpan="4">
-                <DisplayField value={displayValue} />
-              </td>
-            </tr>
-            <tr className="button-row">
-              <td>
-                <CalculatorButton
-                  text={'AC'}
-                  id={'all-clear'}
-                  className={'all-clear'}
-                  onClickHandler={onClickHandler}
-                  isActive
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'C'}
-                  id={'clear'}
-                  className={'clear'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'+/-'}
-                  id={'sign'}
-                  className={'sign'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'\u00F7'}
-                  id={'divide'}
-                  className={'operator'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-            </tr>
-            <tr className="button-row">
-              <td>
-                <CalculatorButton
-                  text={'7'}
-                  id={'7'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'8'}
-                  id={'8'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'9'}
-                  id={'9'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'x'}
-                  id={'multiply'}
-                  className={'operator'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-            </tr>
-            <tr className="button-row">
-              <td>
-                <CalculatorButton
-                  text={'4'}
-                  id={'4'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'5'}
-                  id={'5'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'6'}
-                  id={'6'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'-'}
-                  id={'subtract'}
-                  className={'operator'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-            </tr>
-            <tr className="button-row">
-              <td>
-                <CalculatorButton
-                  text={'1'}
-                  id={'1'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'2'}
-                  id={'2'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'3'}
-                  id={'3'}
-                  className={'number'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'+'}
-                  id={'add'}
-                  className={'operator'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-            </tr>
-            <tr className="button-row">
-              <td colSpan="2">
-                <CalculatorButton
-                  text={'0'}
-                  id={'0'}
-                  className={'number'}
-                  wrapperClass={'zero-cell'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'.'}
-                  id={'decimal'}
-                  className={'decimal'}
-                  disabled={disableNumbers}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-              <td>
-                <CalculatorButton
-                  text={'='}
-                  id={'equal'}
-                  className={'operator'}
-                  onClickHandler={onClickHandler}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      </section>
+
+      <section className="calc-wrapper">
+        <section className="calc-display-field-wrapper">
+          <input value={displayValue} className="calc-display-field" readOnly />
+        </section>
+
+        <section className="calc-button-row">
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'AC'}
+              id={'all-clear'}
+              className={'all-clear'}
+              onClickHandler={onClickHandler}
+              isActive
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'C'}
+              id={'clear'}
+              className={'clear'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'+/-'}
+              id={'sign'}
+              className={'sign'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'\u00F7'}
+              id={'divide'}
+              className={'operator'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+        </section>
+
+        <section className="calc-button-row">
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'7'}
+              id={'seven'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'8'}
+              id={'eight'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'9'}
+              id={'nine'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'x'}
+              id={'multiply'}
+              className={'operator'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+        </section>
+
+        <section className="calc-button-row">
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'4'}
+              id={'four'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'5'}
+              id={'five'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'6'}
+              id={'six'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'-'}
+              id={'subtract'}
+              className={'operator'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+        </section>
+
+        <section className="calc-button-row">
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'1'}
+              id={'one'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'2'}
+              id={'two'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'3'}
+              id={'three'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'+'}
+              id={'add'}
+              className={'operator'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+        </section>
+
+        <section className="calc-button-row">
+          <div className="calc-button-wrapper zero-btn-wrapper">
+            <CalculatorButton
+              text={'0'}
+              id={'zero'}
+              className={'number'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'.'}
+              id={'decimal'}
+              className={'decimal'}
+              disabled={disableNumbers}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+          <div className="calc-button-wrapper">
+            <CalculatorButton
+              text={'='}
+              id={'equal'}
+              className={'operator'}
+              onClickHandler={onClickHandler}
+            />
+          </div>
+        </section>
+      </section>
+    </div>
   )
 }

@@ -1,22 +1,21 @@
-import React from "react";
-import "./style.css";
+import React from 'react'
+import './style.css'
 
 export const CalculatorButton = (props) => {
+  const { disabled, id, className, text } = props
+
   const onClickHandler = (e) => {
-		if(!props.disabled){
-			props.onClickHandler(e);
-		}
-    
-  };
+    if (!disabled) {
+      props.onClickHandler(e)
+    }
+  }
   return (
-    <div className={`button-container ${props.wrapperClass ? props.wrapperClass : ''}`}>
-      <div
-        id={props.id}
-        className={`button ${props.className}`}
-        onClick={(e) => onClickHandler(e)}
-      >
-        {props.text}
-      </div>
+    <div
+      id={id}
+      className={`calc-button ${className}`}
+      onClick={(e) => onClickHandler(e)}
+    >
+      {text}
     </div>
-  );
-};
+  )
+}
