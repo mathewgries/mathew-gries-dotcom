@@ -11,6 +11,18 @@
   margin: 0 auto;
 }
 
+@media screen and (min-width: 800px) {
+  .home-intro {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .home-intro {
+    width: 50vw;
+  }
+}
+
 .home-images {
   display: flex;
   flex-flow: row wrap;

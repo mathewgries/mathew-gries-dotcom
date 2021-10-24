@@ -6,7 +6,7 @@ import './style.css'
 
 export const Home = () => {
   return (
-    <div className="page-container home">
+    <div className="home">
       <section className="page-section home-intro">
         <header className="page-header">
           <h1>Mathew Gries...com</h1>
