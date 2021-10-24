@@ -5,6 +5,23 @@
   width: 80vw;
 }
 
+.converter-section {
+	margin: 0 auto 30px auto;
+	width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .converter-section {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .bp-section {
+    width: 30vw;		
+  }
+}
+
 .binary-link {
   color: blue;
   text-align: center;

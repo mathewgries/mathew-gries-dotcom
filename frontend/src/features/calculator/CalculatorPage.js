@@ -222,7 +222,7 @@ export const CalculatorPage = () => {
   //==========================================================================//
 
   return (
-    <div className="page-container calculator">
+    <div className="calculator">
       <section className="page-header">
         <header>
           <h1>Calculator</h1>

@@ -5,8 +5,8 @@ import './style.css'
 
 export const BorderPreview = () => {
   return (
-    <div className="page-container border-preview">
-      <section className="page-section">
+    <div className="border-preview">
+      <section className="bp-section">
         <header className="page-header">
           <h1>Border Preview</h1>
         </header>
@@ -15,7 +15,7 @@ export const BorderPreview = () => {
         </div>
       </section>
 
-      <section className="page-section">
+      <section className="bp-section">
         <BorderForm />
       </section>
     </div>

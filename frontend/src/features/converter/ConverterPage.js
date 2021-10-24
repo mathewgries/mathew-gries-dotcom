@@ -57,8 +57,8 @@ export const ConverterPage = () => {
   }
 
   return (
-    <div className="page-container converter">
-      <section className="page-section">
+    <div className="converter">
+      <section className="converter-section">
         <header className="page-header">
           <h1>Convert Binary To Decimal</h1>
         </header>
@@ -78,7 +78,7 @@ export const ConverterPage = () => {
         </div>
       </section>
 
-      <section className="page-section">
+      <section className="converter-section">
         <div className="converter-form-container">
           <form onSubmit={handleSubmit}>
             <div className="converter-form-group">

@@ -7,7 +7,9 @@ const FormInput = (props) => {
   const { label, name, value, inputChange } = props
 
   const handleOnChange = ({ target }) => {
-    inputChange(target)
+    if (!isNaN(target.value)) {
+      inputChange(target)
+    }
   }
 
   return (
@@ -47,7 +49,7 @@ export const BorderForm = () => {
 
   return (
     <section className="bp-form-container">
-      <div className='bp-input-wrapper'>
+      <div className="bp-input-wrapper">
         <FormInput
           label={'Top-Left'}
           name={'borderTopLeftRadius'}
@@ -55,7 +57,7 @@ export const BorderForm = () => {
           inputChange={handleInputChange}
         />
       </div>
-      <div className='bp-input-wrapper'>
+      <div className="bp-input-wrapper">
         <FormInput
           label={'Top-Right'}
           name={'borderTopRightRadius'}
@@ -63,7 +65,7 @@ export const BorderForm = () => {
           inputChange={handleInputChange}
         />
       </div>
-      <div className='bp-input-wrapper'>
+      <div className="bp-input-wrapper">
         <FormInput
           label={'Bottom-Left'}
           name={'borderBottomLeftRadius'}
@@ -71,7 +73,7 @@ export const BorderForm = () => {
           inputChange={handleInputChange}
         />
       </div>
-      <div className='bp-input-wrapper'>
+      <div className="bp-input-wrapper">
         <FormInput
           label={'Bottom-Right'}
           name={'borderBottomRightRadius'}

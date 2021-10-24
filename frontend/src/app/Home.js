@@ -7,7 +7,7 @@ import './style.css'
 export const Home = () => {
   return (
     <div className="home">
-      <section className="page-section home-intro">
+      <section className="home-section home-intro">
         <header className="page-header">
           <h1>Mathew Gries...com</h1>
         </header>
@@ -64,7 +64,7 @@ export const Home = () => {
         <ProjectsList />
       </section>
 
-      <section className="page-section home-images">
+      <section className="home-section home-images">
         <div className="home-img-container">
           <img src={villa_capri} className="home-img" alt="villa_capri" />
         </div>

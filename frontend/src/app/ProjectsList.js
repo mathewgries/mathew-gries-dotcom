@@ -22,8 +22,8 @@ const ListItem = (props) => {
 
 export const ProjectsList = () => {
   return (
-    <div className="page-container projects">
-      <section className="page-section">
+    <div className="projects">
+      <section className="projects-section">
         <header className="page-header">
           <h1>
             <u>My Projects</u>

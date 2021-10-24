@@ -1,10 +1,15 @@
 /* *HOME PAGE */
 
 .home {
-	display: flex;
-	flex-flow: column;
-	margin: 40px auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  margin: 40px auto 0 auto;
   width: 80vw;
+}
+
+.home-section {
+  margin-bottom: 80px;
+  width: 100%;
 }
 
 .home-intro {
@@ -47,10 +52,15 @@
 /** Projects page */
 
 .projects {
-	display: flex;
-	flex-flow: column;
-	margin: 40px auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  margin: 40px auto 0 auto;
   width: 80vw;
+}
+
+.projects-section {
+  margin-bottom: 80px;
+  width: 100%;
 }
 
 .projects-list {

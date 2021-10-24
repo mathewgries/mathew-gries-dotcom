@@ -1,8 +1,25 @@
 .border-preview {
-	display: flex;
-	flex-flow: column;
-	margin: 40px auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  margin: 40px auto 0 auto;
   width: 80vw;
+}
+
+.bp-section {
+  margin: 0 auto 30px auto;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .bp-section {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .bp-section {
+    width: 30vw;		
+  }
 }
 
 .bp-box {
