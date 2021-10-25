@@ -7,6 +7,7 @@ export const ChristmasLight = (props) => {
   const [style, setStyle] = useState({
     id: 0,
     backgroundColor: props.colorWheel[0],
+		border: `1px solid ${props.colorWheel[0]}`,
     boxShadow: 'none',
   })
 
@@ -22,6 +23,7 @@ export const ChristmasLight = (props) => {
           setStyle({
             id: nextId,
             backgroundColor: colorWheel[nextId],
+						border: `1px solid ${colorWheel[nextId]}`,
 						boxShadow: `1px ${nextId+1}px ${nextId*2}px ${colorWheel[nextId]}`
           })
         }, 200)
@@ -33,7 +35,8 @@ export const ChristmasLight = (props) => {
     } else if (!power && style.id !== 0) {
       setStyle({
         id: 0,
-        backgroundColor: colorWheel[0],
+				backgroundColor: props.colorWheel[0],
+        border: `1px solid ${props.colorWheel[0]}`,
         boxShadow: 'none',
       })
     }
@@ -61,6 +64,7 @@ export const ChristmasLight = (props) => {
         className="light-bulb"
         style={{
           backgroundColor: style.backgroundColor,
+					border: style.border,
           boxShadow: style.boxShadow,
         }}
       ></div>
