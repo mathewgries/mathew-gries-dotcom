@@ -33,7 +33,7 @@ export const ChristmasLight = (props) => {
     } else if (!power && style.id !== 0) {
       setStyle({
         id: 0,
-        backgroundColor: props.colorWheel[0],
+        backgroundColor: colorWheel[0],
         boxShadow: 'none',
       })
     }
