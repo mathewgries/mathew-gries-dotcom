@@ -54,6 +54,14 @@ export const ProjectsList = () => {
               url={'https://www.mathewgries.com/calculator'}
             />
           </div>
+          <div className="project-list-item-container">
+            <ListItem
+              path={'christmas-lights'}
+              title={'Christmas Lights'}
+              text={'Interactive Christmas lights display'}
+              url={'https://www.mathewgries.com/christmas-lights'}
+            />
+          </div>
         </div>
       </section>
     </div>

@@ -5,6 +5,7 @@ import { ProjectsList } from './app/ProjectsList'
 import { ConverterPage } from './features/converter/ConverterPage'
 import { BorderPreview } from './features/borderPreview/BorderPreview'
 import { CalculatorPage } from './features/calculator/CalculatorPage'
+import { ChristmasLights } from './features/christmasLights/ChristmasLights'
 import { NotFound } from './app/NotFound'
 
 export default function Routes() {
@@ -29,6 +30,10 @@ export default function Routes() {
       <Route exact path="/calculator">
         <CalculatorPage />
       </Route>
+
+			<Route exact path="/christmas-lights">
+				<ChristmasLights/>
+			</Route>
 
       <Route>
         <NotFound />
